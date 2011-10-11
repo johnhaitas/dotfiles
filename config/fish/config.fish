@@ -19,4 +19,4 @@ function fish_prompt
          end 
 end
 
-set PATH /opt/local/bin $PATH
+set PATH ~/bin /opt/local/bin $PATH
