@@ -1,9 +1,13 @@
 # MacPorts
-if [ -d /opt/local/sbin ]; then PATH=/opt/local/sbin:${PATH}; fi
-if [ -d /opt/local/bin ]; then PATH=/opt/local/bin:${PATH}; fi
+# if [ -d /opt/local/sbin ]; then PATH=/opt/local/sbin:${PATH}; fi
+# if [ -d /opt/local/bin ]; then PATH=/opt/local/bin:${PATH}; fi
+# export PATH
+# if [ -d /opt/local/share/man ]; then MANPATH=/opt/local/share/man:${MANPATH}; fi
+# export MANPATH
+
+# Homebrew
+if [ -d ${HOME}/.brew/bin ]; then PATH=${HOME}/.brew/bin:${PATH}; fi
 export PATH
-if [ -d /opt/local/share/man ]; then MANPATH=/opt/local/share/man:${MANPATH}; fi
-export MANPATH
 
 # make zsh Application aware
 compctl -f -x 'p[2]' -s "`/bin/ls -d1 /Applications/*/*.app /Applications/*.app \
