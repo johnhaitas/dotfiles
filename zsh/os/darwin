@@ -6,7 +6,7 @@
 # export MANPATH
 
 # Homebrew
-if [ -d ${HOME}/.brew/bin ]; then PATH=${HOME}/.brew/bin:${PATH}; fi
+if [ -d `brew --prefix`/bin ]; then PATH=`brew --prefix`/.brew/bin:${PATH}; fi
 export PATH
 
 # make zsh Application aware
