@@ -39,3 +39,8 @@ setopt HIST_IGNORE_ALL_DUPS									# don't record dupes in history
 setopt HIST_REDUCE_BLANKS
 
 setopt SHWORDSPLIT							# for ... in loops iterating through words behave like bash
+
+ZSH=${HOME}/.oh-my-zsh
+ZSH_THEME="robbyrussell"
+
+if [ -f ${ZSH}/oh-my-zsh.sh ]; then source ${ZSH}/oh-my-zsh.sh; fi
