@@ -41,6 +41,6 @@ setopt HIST_REDUCE_BLANKS
 setopt SHWORDSPLIT							# for ... in loops iterating through words behave like bash
 
 ZSH=${HOME}/.oh-my-zsh
-ZSH_THEME="robbyrussell"
+ZSH_THEME="johnhaitas"
 
 if [ -f ${ZSH}/oh-my-zsh.sh ]; then source ${ZSH}/oh-my-zsh.sh; fi
