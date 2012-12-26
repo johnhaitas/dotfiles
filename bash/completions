@@ -3,7 +3,7 @@ if [ -f /opt/local/etc/bash_completion ]; then
 fi
 
 # Homebrew
-if which brew >/dev/null; then
+if [ -f `which brew` ]; then
 	if [ -f `brew --prefix`/etc/bash_completion ]; then
 	  . `brew --prefix`/etc/bash_completion
 	fi
