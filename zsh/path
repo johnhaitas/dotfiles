@@ -1,3 +1,8 @@
+if [ -d ${HOME}/bin ];       then PATH=${HOME}/bin:${PATH};       fi
 if [ -d ${HOME}/.bin ];       then PATH=${HOME}/.bin:${PATH};       fi
 if [ -d ${HOME}/.brew/bin ];  then PATH=${HOME}/.brew/bin:${PATH};  fi
+if [ -d ${HOME}/.depot_tools ]; then PATH=${HOME}/.depot_tools:${PATH}; fi
+
+if [ -d /usr/local/mysql/bin ]; then PATH=/usr/local/mysql/bin:${PATH}; fi
+
 export PATH
