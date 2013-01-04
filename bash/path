@@ -3,4 +3,7 @@ if [ -d ${HOME}/bin ]; then PATH=${HOME}/bin:${PATH}; fi
 if [ -d ${HOME}/.bin ]; then PATH=${HOME}/.bin:${PATH}; fi
 if [ -d ${HOME}/.brew/bin ];  then PATH=${HOME}/.brew/bin:${PATH};  fi
 
+# ruby gems
+if [ -d $(gem env | grep "EXECUTABLE DIRECTORY" | awk '{print $4}') ]; then PATH=$(gem env | grep "EXECUTABLE DIRECTORY" | awk '{print $4}'):${PATH}; fi
+
 export PATH
