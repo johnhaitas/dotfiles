@@ -10,3 +10,5 @@ if [ -f /etc/zshrc ]; then . /etc/zshrc; fi
 
 # use .localrc for settings specific to one system
 if [ -f ~/.localrc ]; then . ~/.localrc; fi
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
