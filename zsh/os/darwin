@@ -16,3 +16,6 @@ compctl -f -x 'p[2]' -s "`/bin/ls -d1 /Applications/*/*.app /Applications/*.app 
 
 alias postgres.server="pg_ctl -D /usr/local/var/postgres"
 alias pod_clean_install="rm -rf Pods Podfile.lock && pod install"
+
+export RMATE_HOST=auto
+export RMATE_PORT=52698
