@@ -9,7 +9,10 @@ if [ -d ${HOME}/.ec2 ]; then
 	export PATH=$PATH:$EC2_HOME/bin
 	export EC2_PRIVATE_KEY=`ls $EC2_HOME/pk-*.pem`
 	export EC2_CERT=`ls $EC2_HOME/cert-*.pem`
-	export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Home/
+fi
+
+if [ -d "`/System/Library/Frameworks/JavaVM.framework/Versions/Current/Commands/java_home`" ]; then 
+	export JAVA_HOME="`/System/Library/Frameworks/JavaVM.framework/Versions/Current/Commands/java_home`"; 
 fi
 
 if [ -d /usr/local/mysql/bin ]; then PATH=/usr/local/mysql/bin:${PATH}; fi
@@ -23,5 +26,10 @@ else;
 	fi;
 fi
 
+GCLOUD_SDK_PATH="${HOME}/google-cloud-sdk"
+if [ -d ${GCLOUD_SDK_PATH} ]; then
+	# The next line enables shell command completion for gcloud.
+	source "${GCLOUD_SDK_PATH}/completion.zsh.inc"
+fi
 
 export PATH

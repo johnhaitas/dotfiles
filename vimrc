@@ -16,3 +16,4 @@ set t_Co=256
 syntax enable "syntax highlighting
 colorscheme ir_black
 
+autocmd filetype crontab setlocal nobackup nowritebackup

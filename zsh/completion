@@ -1,8 +1,15 @@
-autoload -U compinit
-compinit
+autoload -Uz compinit && compinit -i
 
 # matches case insensitive for lowercase
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 # pasting with tabs doesn't perform completion
 zstyle ':completion:*' insert-tab pending
+
+fpath=(~/.zsh/completion.d $fpath)
+
+GCLOUD_SDK_PATH="${HOME}/google-cloud-sdk"
+if [ -d ${GCLOUD_SDK_PATH} ]; then
+	# The next line updates PATH for the Google Cloud SDK.
+	source "${GCLOUD_SDK_PATH}/path.zsh.inc"
+fi
