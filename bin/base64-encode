@@ -1,0 +1,5 @@
+#!/bin/bash
+read -p "Enter string and press [ENTER]: " PLAIN_STRING
+BASE64_STRING=`printf "%s" "${PLAIN_STRING}" | base64 | awk '{print $1}'`
+printf "%s" "${BASE64_STRING}" | pbcopy
+printf "%s\n" "${BASE64_STRING}"
