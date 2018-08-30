@@ -7,3 +7,5 @@ if command -v gcloud > /dev/null 2>&1; then alias gc=gcloud; fi
 if command -v kubectl > /dev/null 2>&1; then alias kc=kubectl; fi
 
 if [ -f /Applications/kdiff3.app/Contents/MacOS/kdiff3 ]; then alias kdiff3=/Applications/kdiff3.app/Contents/MacOS/kdiff3; fi
+
+if [ -d /Applications/SourceTree.app ]; then alias sourcetree='open -a SourceTree'; fi
