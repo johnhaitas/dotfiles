@@ -11,5 +11,5 @@ fpath=(~/.zsh/completion.d $fpath)
 GCLOUD_SDK_PATH="${HOME}/google-cloud-sdk"
 if [ -d ${GCLOUD_SDK_PATH} ]; then
 	# The next line updates PATH for the Google Cloud SDK.
-	source "${GCLOUD_SDK_PATH}/path.zsh.inc"
+	source "${GCLOUD_SDK_PATH}/completion.zsh.inc"
 fi
