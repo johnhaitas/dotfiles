@@ -29,7 +29,37 @@ fi
 GCLOUD_SDK_PATH="${HOME}/google-cloud-sdk"
 if [ -d ${GCLOUD_SDK_PATH} ]; then
 	# The next line enables shell command completion for gcloud.
-	source "${GCLOUD_SDK_PATH}/completion.zsh.inc"
+	source "${GCLOUD_SDK_PATH}/path.zsh.inc"
+fi
+
+PYENV_ROOT="$HOME/.pyenv"
+if [[ -d ${PYENV_ROOT} ]]; then
+	export PYENV_ROOT
+	PATH="$PYENV_ROOT/shims:$PATH"
+fi
+
+FLUTTER_PATH="${HOME}/src/flutter/bin"
+if [[ -d "${FLUTTER_PATH}" ]]; then
+	PATH="$FLUTTER_PATH:$PATH"
+fi
+
+FLUTTER_DART_SDK="${FLUTTER_PATH}/cache/dart-sdk/bin"
+if [[ -d "${FLUTTER_DART_SDK}" ]]; then
+	PATH="$FLUTTER_DART_SDK:$PATH"
+fi
+
+ANDROID_PLATFORM_TOOLS_PATH="${HOME}/Library/Android/sdk/platform-tools/"
+if [[ -d "${ANDROID_PLATFORM_TOOLS_PATH}" ]]; then
+	PATH="${ANDROID_PLATFORM_TOOLS_PATH}:${PATH}"
+fi
+
+
+OPENSSL_PATH="/usr/local/opt/openssl"
+if [[ -d "${OPENSSL_PATH}" ]]; then
+	PATH="${OPENSSL_PATH}/bin:$PATH"
+	export LDFLAGS="-L${OPENSSL_PATH}/lib ${LDFLAGS}"
+	export CPPFLAGS="-I${OPENSSL_PATH}/include ${CPPFLAGS}"
+	export PKG_CONFIG_PATH="${OPENSSL_PATH}/lib/pkgconfig:${PKG_CONFIG_PATH}"
 fi
 
 export PATH
