@@ -14,7 +14,12 @@ if [ -f ~/.localrc ]; then . ~/.localrc; fi
 if [ -d ${HOME}/.oh-my-zsh ]; then
     # oh-my-zsh
     ZSH=${HOME}/.oh-my-zsh
-    ZSH_THEME="johnhaitas"
+    ZSH_THEME="robbyrussell"
+    CUSTOM_ZSH_THEME="johnhaitas"
+
+    if [ -f "${ZSH}/custom/themes/${CUSTOM_ZSH_THEME}.zsh-theme" ]; then
+        ZSH_THEME="${CUSTOM_ZSH_THEME}"
+    fi
 
     plugins=(kubectl docker $plugins)
 
