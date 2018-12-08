@@ -1,5 +1,6 @@
 .netrwhist
 libimobiledevice
 
+config/*
 config/gcloud
 config/yarn

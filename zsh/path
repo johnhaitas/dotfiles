@@ -26,6 +26,12 @@ else;
 	fi;
 fi
 
+# Go
+GO_PATH="/usr/local/go/bin";
+if [ -d "${GO_PATH}" ]; then
+	PATH="${GO_PATH}:${PATH}"
+fi
+
 GCLOUD_SDK_PATH="${HOME}/google-cloud-sdk"
 if [ -d ${GCLOUD_SDK_PATH} ]; then
 	# The next line enables shell command completion for gcloud.
@@ -53,13 +59,46 @@ if [[ -d "${ANDROID_PLATFORM_TOOLS_PATH}" ]]; then
 	PATH="${ANDROID_PLATFORM_TOOLS_PATH}:${PATH}"
 fi
 
+#OPENSSL_PATH="/usr/local/opt/openssl"
+#if [[ -d "${OPENSSL_PATH}" ]]; then
+#	PATH="${OPENSSL_PATH}/bin:$PATH"
+#	export LDFLAGS="-L${OPENSSL_PATH}/lib ${LDFLAGS}"
+#	export CPPFLAGS="-I${OPENSSL_PATH}/include ${CPPFLAGS}"
+#	export PKG_CONFIG_PATH="${OPENSSL_PATH}/lib/pkgconfig:${PKG_CONFIG_PATH}"
+#fi
 
-OPENSSL_PATH="/usr/local/opt/openssl"
-if [[ -d "${OPENSSL_PATH}" ]]; then
-	PATH="${OPENSSL_PATH}/bin:$PATH"
-	export LDFLAGS="-L${OPENSSL_PATH}/lib ${LDFLAGS}"
-	export CPPFLAGS="-I${OPENSSL_PATH}/include ${CPPFLAGS}"
-	export PKG_CONFIG_PATH="${OPENSSL_PATH}/lib/pkgconfig:${PKG_CONFIG_PATH}"
+HYPERLEDGER_FABRIC_PATH="${HOME}/src/hyperledger/fabric-samples/bin"
+if [[ -d "${HYPERLEDGER_FABRIC_PATH}" ]]; then
+	PATH="${HYPERLEDGER_FABRIC_PATH}:${PATH}"
 fi
+
+export NVM_DIR="$HOME/.nvm"
+if [[ -d "${NVM_DIR}" ]]; then
+	[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+	# place this after nvm initialization!
+	autoload -U add-zsh-hook
+	load-nvmrc() {
+	local node_version="$(nvm version)"
+	local nvmrc_path="$(nvm_find_nvmrc)"
+
+	if [ -n "$nvmrc_path" ]; then
+		local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+
+		if [ "$nvmrc_node_version" = "N/A" ]; then
+		nvm install
+		elif [ "$nvmrc_node_version" != "$node_version" ]; then
+		nvm use
+		fi
+	elif [ "$node_version" != "$(nvm version default)" ]; then
+		echo "Reverting to nvm default version"
+		nvm use default
+	fi
+	}
+	add-zsh-hook chpwd load-nvmrc
+	load-nvmrc
+fi
+
+PATH="node_modules/.bin:${PATH}"
 
 export PATH
