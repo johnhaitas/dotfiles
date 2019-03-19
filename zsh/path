@@ -54,9 +54,13 @@ if [[ -d "${FLUTTER_DART_SDK}" ]]; then
 	PATH="$FLUTTER_DART_SDK:$PATH"
 fi
 
-ANDROID_PLATFORM_TOOLS_PATH="${HOME}/Library/Android/sdk/platform-tools/"
-if [[ -d "${ANDROID_PLATFORM_TOOLS_PATH}" ]]; then
-	PATH="${ANDROID_PLATFORM_TOOLS_PATH}:${PATH}"
+ANDROID_HOME=$HOME/Library/Android/sdk
+if [[ -d "${ANDROID_HOME}" ]]; then
+	export ANDROID_HOME
+	PATH=$PATH:$ANDROID_HOME/emulator
+	PATH=$PATH:$ANDROID_HOME/tools
+	PATH=$PATH:$ANDROID_HOME/tools/bin
+	PATH=$PATH:$ANDROID_HOME/platform-tools
 fi
 
 #OPENSSL_PATH="/usr/local/opt/openssl"
@@ -99,6 +103,6 @@ if [[ -d "${NVM_DIR}" ]]; then
 	load-nvmrc
 fi
 
-PATH="node_modules/.bin:${PATH}"
+#PATH="node_modules/.bin:${PATH}"
 
 export PATH
