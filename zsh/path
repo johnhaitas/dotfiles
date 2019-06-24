@@ -99,6 +99,4 @@ if [[ -d "${NVM_DIR}" ]]; then
 	load-nvmrc
 fi
 
-PATH="node_modules/.bin:${PATH}"
-
 export PATH
