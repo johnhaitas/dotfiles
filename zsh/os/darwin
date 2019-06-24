@@ -22,3 +22,7 @@ alias google-chrome=${GOOGLE_CHROME_MAC}
 
 CHROMIUM_MAC='/Applications/Chromium.app/Contents/MacOS/Chromium'
 alias chromium=${CHROMIUM_MAC}
+
+# iTerm2 Shell Integration
+echo 'here'
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
