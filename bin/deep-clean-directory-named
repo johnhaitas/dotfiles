@@ -1,0 +1,5 @@
+#!/bin/bash
+DIR_NAME=${1}
+find `pwd` -maxdepth 10 -type d -name "${DIR_NAME}" \
+    -exec echo "{}" \; \
+    -exec rm -rf {} 2> /dev/null \;
