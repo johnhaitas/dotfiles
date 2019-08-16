@@ -109,4 +109,16 @@ if [[ -d "${NVM_DIR}" ]]; then
 	load-nvmrc
 fi
 
+# Xcode SDKRoot
+SDKROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/
+if [[ -d "${SDKROOT}" ]]; then
+	export SDKROOT
+fi
+
+
+#swiftenv
+if which swiftenv > /dev/null; then
+	eval "$(swiftenv init -)";
+fi
+
 export PATH
