@@ -12,3 +12,5 @@ if [ -d /Applications/SourceTree.app ]; then alias sourcetree='open -a SourceTre
 
 alias google-chrome-debug='google-chrome --remote-debugging-port=9222'
 alias chromium-debug='chromium --remote-debugging-port=9222'
+
+alias sleepless="pmset -g assertions | egrep '(PreventUserIdleSystemSleep|PreventUserIdleDisplaySleep)'"
